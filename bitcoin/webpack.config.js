@@ -50,12 +50,9 @@ module.exports = (_, argv) => ({
         argv.mode === 'development'
           ? {
               home: 'home@http://localhost:3000/remoteEntry.js',
-              bitcoin: 'bitcoin@http://localhost:3001/remoteEntry.js',
             }
           : {
-              home: 'https://bitcoin-price-mfe.vercel.app/remoteEntry.js',
-              bitcoin:
-                'bitcoin@https://bitcoin-price-mfe-price-page.vercel.app/remoteEntry.js',
+              home: 'home@https://bitcoin-price-mfe.vercel.app/remoteEntry.js',
             },
       exposes: {
         './BitcoinContent': './src/BitcoinContent.tsx',
