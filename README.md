@@ -26,4 +26,4 @@
 - [Vercel](https://vercel.com/)
 
 ## License
-Code released under the [MIT License]().
+Code released under the [MIT License](https://github.com/Tushar-Indurjeeth/Bitcoin_Price_MFE/blob/077406b2a8b02a06917e5756f43966d0b0b52bec/LICENSE).
