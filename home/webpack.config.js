@@ -4,7 +4,10 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const deps = require('./package.json').dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: argv.mode === 'development' ? 'http://localhost:3000/' : '',
+    publicPath:
+      argv.mode === 'development'
+        ? 'http://localhost:3000/'
+        : 'https://bitcoin-price-mfe.vercel.app/',
   },
 
   resolve: {
@@ -43,10 +46,17 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: 'home',
       filename: 'remoteEntry.js',
-      remotes: {
-        home: 'home@http://localhost:3000/remoteEntry.js',
-        bitcoin: 'bitcoin@http://localhost:3001/remoteEntry.js',
-      },
+      remotes:
+        argv.mode === 'development'
+          ? {
+              home: 'home@http://localhost:3000/remoteEntry.js',
+              bitcoin: 'bitcoin@http://localhost:3001/remoteEntry.js',
+            }
+          : {
+              home: 'https://bitcoin-price-mfe.vercel.app/remoteEntry.js',
+              bitcoin:
+                'bitcoin@https://bitcoin-price-mfe-price-page.vercel.app/remoteEntry.js',
+            },
       exposes: {
         './firebaseConfig': './firebaseConfig/firebase.js',
         './MainContent': './src/MainContent.jsx',
