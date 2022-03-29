@@ -53,7 +53,7 @@ module.exports = (_, argv) => ({
               bitcoin: 'bitcoin@http://localhost:3001/remoteEntry.js',
             }
           : {
-              home: 'https://bitcoin-price-mfe.vercel.app/remoteEntry.js',
+              home: 'home@https://bitcoin-price-mfe.vercel.app/remoteEntry.js',
               bitcoin:
                 'bitcoin@https://bitcoin-price-mfe-price-page.vercel.app/remoteEntry.js',
             },
